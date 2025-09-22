@@ -1,4 +1,3 @@
-```md
 # Learning Hub — Online Courses Platform
 
 Learning Hub is a mini Udemy-style application I built as part of **Project Nexus (Frontend ProDev)**.  
@@ -31,20 +30,35 @@ It allows users to browse courses, view lessons, and track their learning progre
 
 ## Project Structure
 
-```
-
+```text
 src/
-┣ components/    # Reusable components: Navbar, CourseCard, ProgressBar, etc.
-┣ pages/         # Pages: Home, Catalog, CourseDetails, Dashboard
-┣ context/       # App-wide state: ProgressContext
-┣ services/      # API calls: axios helper
-┣ data/          # Mock courses data
-┣ App.tsx        # Root component with routes
-┗ main.tsx       # Entry point
+├─ components/             # Reusable UI components
+│  ├─ Navbar.tsx           # Top navigation bar
+│  ├─ CourseCard.tsx       # Card for displaying each course in catalog
+│  ├─ ProgressBar.tsx      # Shows lesson/course completion
+│  ├─ LessonItem.tsx       # Individual lesson in course details
+│  └─ Footer.tsx           # Footer component
+│
+├─ pages/                  # Main application pages
+│  ├─ Home.tsx             # Landing page with featured courses
+│  ├─ Catalog.tsx          # Course catalog page with categories & search
+│  ├─ CourseDetails.tsx    # Detailed course info and lessons
+│  └─ Dashboard.tsx        # User dashboard showing enrolled courses & progress
+│
+├─ context/                # React context for state management
+│  ├─ ProgressContext.tsx  # Track user progress in courses
+│  └─ AuthContext.tsx      # (Optional) User authentication state
+│
+├─ services/               # API or data handling
+│  └─ api.ts               # Axios or fetch helpers for courses
+│
+├─ data/                   # Mock data for development
+│  └─ courses.ts           # Array of course objects with lessons, videos, etc.
+│
+├─ App.tsx                 # Root component with routes
+├─ main.tsx                # React entry point
+└─ index.css               # Global CSS (or Tailwind import)
 
-````
-
----
 
 ## How It Works
 
@@ -64,48 +78,40 @@ Clone the repo and install dependencies:
 git clone https://github.com/YOUR-USERNAME/learning-hub.git
 cd learning-hub
 npm install
-````
+
 
 Run the development server:
 
-```bash
 npm run dev
-```
+
 
 Run mock backend (JSON Server):
 
-```bash
 npm run server
-```
+
 
 Build for production:
 
-```bash
 npm run build
-```
 
----
+Demo & Hosting
 
-## Demo & Hosting
+Hosted App: [Your Vercel Link]
 
-* **Hosted App**: \[Your Vercel Link]
-* **Demo Video**: \[Link to 5-min demo]
-* **Figma Design**: \[Link to Figma file]
+Demo Video: [Link to 5-min demo]
 
----
+Figma Design: [Link to Figma file]
 
-## Future Improvements
+Future Improvements
 
-* Add **authentication** and user accounts (Firebase / Supabase)
-* Admin panel for course management
-* Certificates for completed courses
-* Search and filter enhancements
+Add authentication and user accounts (Firebase / Supabase)
 
----
+Admin panel for course management
 
-## Reflection
+Certificates for completed courses
 
-Building Learning Hub was an incredible learning experience. I improved my skills in React, TypeScript, Tailwind, and professional project organization. I also practiced building **reusable components**, managing app state, and tracking user interactions with context and `localStorage`. This project is now a full-fledged portfolio piece demonstrating my readiness for professional frontend development.
+Search and filter enhancements
 
-```
+Reflection
 
+Building Learning Hub was an incredible learning experience. I improved my skills in React, TypeScript, Tailwind, and professional project organization. I also practiced building reusable components, managing app state, and tracking user interactions with context and localStorage. This project is now a full-fledged portfolio piece demonstrating my readiness for professional frontend development.
