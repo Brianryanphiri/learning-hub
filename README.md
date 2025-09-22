@@ -59,8 +59,11 @@ src/
 ├─ main.tsx                # React entry point
 └─ index.css               # Global CSS (or Tailwind import)
 
+---
+
 
 ## How It Works
+
 
 1. Users land on the **Course Catalog** page, browse courses, and select one.  
 2. In **Course Details**, they can see all lessons and watch videos directly in the app.  
