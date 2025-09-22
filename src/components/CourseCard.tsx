@@ -1,32 +1,36 @@
 import { Link } from 'react-router-dom';
-import { useProgress } from '../context/ProgressContext';
-import ProgressBar from './ProgressBar';
-import type { Course } from '../data/courses';
+
+interface Course {
+  id: number;
+  title: string;
+  category: string;
+  progress: number;
+}
 
 interface Props {
   course: Course;
 }
 
 export default function CourseCard({ course }: Props) {
-  const { progress } = useProgress();
-
-  const completedLessons = progress[course.id]?.length || 0;
-  const totalLessons = course.lessons.length;
-  const completionPercentage = Math.round((completedLessons / totalLessons) * 100);
-
   return (
-    <div className="border p-4 rounded shadow hover:shadow-lg transition">
-      <h2 className="text-lg font-bold">{course.title}</h2>
-      <p className="text-sm text-gray-600">{course.category}</p>
+    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 p-6 flex flex-col justify-between h-full">
+      <div>
+        <h2 className="text-lg font-bold text-gray-800 mb-2">{course.title}</h2>
+        <p className="text-sm text-gray-500 mb-4">{course.category}</p>
 
-      <div className="my-2">
-        <ProgressBar percentage={completionPercentage} />
-        <p className="text-xs text-gray-500 mt-1">{completionPercentage}% completed</p>
+        {/* Progress Bar */}
+        <div className="bg-gray-200 rounded-full h-3 w-full mb-2 overflow-hidden">
+          <div
+            className="bg-blue-500 h-3 rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${course.progress}%` }}
+          ></div>
+        </div>
+        <p className="text-xs text-gray-400">{course.progress}% completed</p>
       </div>
 
       <Link
         to={`/courses/${course.id}`}
-        className="text-blue-600 hover:underline mt-2 inline-block"
+        className="mt-4 text-blue-600 font-semibold hover:underline"
       >
         View Course
       </Link>

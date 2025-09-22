@@ -4,7 +4,7 @@ import { useProgress } from '../context/ProgressContext';
 import ProgressBar from '../components/ProgressBar';
 
 export default function CourseDetails() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const courseId = Number(id);
   const course = courses.find(c => c.id === courseId);
   const { progress, toggleLesson } = useProgress();
@@ -36,9 +36,7 @@ export default function CourseDetails() {
               onChange={() => toggleLesson(courseId, index)}
               className="w-4 h-4"
             />
-            <span
-              className={completedLessons.includes(index) ? 'line-through text-gray-400' : ''}
-            >
+            <span className={completedLessons.includes(index) ? 'line-through text-gray-400' : ''}>
               {lesson}
             </span>
           </li>
